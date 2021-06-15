@@ -59,7 +59,7 @@ namespace HW1
 
             public static int FibonacciRec(int n)
             {
-                if (n < 1)
+                if (n < 0)
                 {
                     throw new ArgumentOutOfRangeException("число должно быть неотрицательным", n);
                 }
