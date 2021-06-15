@@ -7,7 +7,7 @@ namespace HW2
     public class Serch
     {
 
-        public static int Binsearch(int[] arr, int value) // O(log(n))
+        public static int Binsearch(int[] arr, int value) // O(log_2(n))
         {
             int min = 0;
             int max = arr.Length - 1;
