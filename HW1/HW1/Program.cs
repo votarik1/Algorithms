@@ -38,7 +38,7 @@ namespace HW1
             {
                 if (n < 1)
                 {
-                    throw new Exception("число должно быть натуральным");
+                    throw new ArgumentOutOfRangeException("число должно быть натуральным", n);
                 }
                 if (n == 1)
                 { return 0; }
