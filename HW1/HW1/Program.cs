@@ -61,7 +61,7 @@ namespace HW1
             {
                 if (n < 1)
                 {
-                    throw new Exception("число должно быть натуральным");
+                    throw new ArgumentOutOfRangeException("число должно быть неотрицательным", n);
                 }
                 if (n == 1)
                 { return 0; }
