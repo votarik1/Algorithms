@@ -63,10 +63,8 @@ namespace HW1
                 {
                     throw new ArgumentOutOfRangeException("число должно быть неотрицательным", n);
                 }
-                if (n == 1)
-                { return 0; }
-                else if (n == 2)
-                { return 1; }
+                if (n < 2)
+                  return n; 
                 else
                 {
                     return FibonacciRec(n - 2) + FibonacciRec(n - 1);
