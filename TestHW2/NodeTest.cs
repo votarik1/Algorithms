@@ -10,17 +10,19 @@ namespace TestHW2
         public void NodeTest1()
         {
             Node begin = new Node() {value = 0 };
+            LinkedList myList = new LinkedList() { StartNode = begin };
             Node end = begin;
             for (int i = 0; i < 10; i++)
             {
-                begin.AddNodeAfter(end, i + 1);
+                myList.AddNodeAfter(end, i + 1);
+                
                 end = end.NextNode;
             }
             int expected = 10;
             int actual = end.value;
             Assert.AreEqual(expected, actual, 0, "Метод AddNodeAfter работает не верно");            
             expected = 11;
-            actual = begin.GetCount();
+            actual = myList.GetCount();
             Assert.AreEqual(expected, actual, 0, "Метод GetCount работает не верно");
         }
 
@@ -28,18 +30,19 @@ namespace TestHW2
         public void NodeTest2()
         {
             Node begin = new Node() { value = 0 };
+            LinkedList myList = new LinkedList() { StartNode = begin };
             Node end = begin;
             for (int i = 0; i < 10; i++)
             {
-                begin.AddNodeAfter(end, i + 1);
+                myList.AddNodeAfter(end, i + 1);
                 end = end.NextNode;
             }
-            begin.AddNode(100);
+            myList.AddNode(100);
             int expected = 100;
             int actual = end.NextNode.value;
             Assert.AreEqual(expected, actual, 0, "Метод AddNode работает не верно");
             expected = 12;
-            actual = begin.GetCount();
+            actual = myList.GetCount();
             Assert.AreEqual(expected, actual, 0, "Метод AddNode работает не верно");
         }
 
@@ -47,33 +50,35 @@ namespace TestHW2
         public void NodeTest3()
         {
             Node begin = new Node() { value = 0 };
+            LinkedList myList = new LinkedList() { StartNode = begin };
             Node end = begin;
             for (int i = 0; i < 10; i++)
             {
-                begin.AddNodeAfter(end, i + 1);
+                myList.AddNodeAfter(end, i + 1);
                 end = end.NextNode;
             }
             int expected = 5;
-            int actual = begin.FindNode(5).value;
+            int actual = myList.FindNode(5).value;
             Assert.AreEqual(expected, actual, 0, "Метод FindNode работает не верно");
         }
         [TestMethod]
         public void NodeTest4()
         {
             Node begin = new Node() { value = 0 };
+            LinkedList myList = new LinkedList() { StartNode = begin };
             Node end = begin;
             for (int i = 0; i < 10; i++)
             {
-                begin.AddNodeAfter(end, i + 1);
+                myList.AddNodeAfter(end, i + 1);
                 end = end.NextNode;
             }
-            begin.RemoveNode(end);
+            myList.RemoveNode(end);
             int expected = 10;
-            int actual = begin.GetCount();
+            int actual = myList.GetCount();
             Assert.AreEqual(expected, actual, 0, "Метод RemoveNode(Node) работает не верно");
-            begin.RemoveNode(1);            
+            myList.RemoveNode(1);            
             object exp= null;
-            object o = begin.FindNode(1);
+            object o = myList.FindNode(1);
             Assert.AreEqual(exp, o, "Метод RemoveNode(int) работает не верно");
 
         }
