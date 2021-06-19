@@ -8,21 +8,20 @@ namespace HW2
     {
 
         public Node StartNode { get; set; }
-
-        public void AddNode(int value)
-        {
-            Node ActiveNode = StartNode;
-            while (ActiveNode.NextNode != null)
-            {
-                ActiveNode = ActiveNode.NextNode;
-            }
+        public Node LastNode { get; set; }
+        public int Count { get; set; } //O(1)
+        public Node AddNode(int value)
+        {      
             Node NewNode = new Node();
             NewNode.value = value;
-            NewNode.PrevNode = ActiveNode;
-            ActiveNode.NextNode = NewNode;
-        } //O(n)
+            LastNode.NextNode = NewNode;
+            NewNode.PrevNode = LastNode;
+            LastNode = NewNode;
+            Count++;
+            return LastNode;
+        } //O(1)
 
-        public void AddNodeAfter(Node node, int value)
+        public Node AddNodeAfter(Node node, int value)
         {
 
             Node NewNode = new Node();
@@ -30,7 +29,16 @@ namespace HW2
             NewNode.PrevNode = node;
             NewNode.NextNode = node.NextNode;
             node.NextNode = NewNode;
-
+            if (NewNode.NextNode==null)
+            {
+                LastNode = NewNode;
+            }
+            else
+            {
+                NewNode.NextNode.PrevNode = NewNode;
+            }           
+            Count++;
+            return NewNode;
         }//O(1)
 
         public Node FindNode(int searchValue)
@@ -47,59 +55,48 @@ namespace HW2
             return ActiveNode;
         }//O(n)
 
-        public int GetCount()
-        {
-            int amount = 1;
-            Node ActiveNode = StartNode;
-            while (ActiveNode.NextNode != null)
-            {
-                ActiveNode = ActiveNode.NextNode;
-                amount++;
-            }
-            return amount;
-        }
-        //O(n)
-
-        public void RemoveNode(int index)
+        public bool RemoveNode(int index)
         {
             Node ActiveNode = StartNode;
             if (index < 0)
             {
-                throw new Exception("Указан отрицательный номер элемента списка");
+                return false;
             }
 
-            if (index == 0)
-            {
-                ActiveNode = null;
-                return;
-            }
-            for (int i = 1; i < index - 1; i++)
+           
+            for (int i = 0; i < index; i++)
             {
                 if (ActiveNode.NextNode == null)
                 {
-                    throw new Exception("Указанный индекс больше размера списка");
+                    return false;
                 }
                 ActiveNode = ActiveNode.NextNode;
             }
-            ActiveNode.NextNode = ActiveNode.NextNode.NextNode;
-            if (ActiveNode.NextNode != null)
-            {
-                ActiveNode.NextNode.PrevNode = ActiveNode;
-            }
-
+            RemoveNode(ActiveNode);
+            Count--;
+            return true;
         }
         //O(n)
-        public void RemoveNode(Node node)
+        public bool RemoveNode(Node node)
         {
-            if (node.NextNode != null)
+            if (node.PrevNode == null)
             {
-                node.NextNode.PrevNode = node.PrevNode;
+                StartNode = node.NextNode;
             }
-            if (node.PrevNode != null)
+            else
             {
                 node.PrevNode.NextNode = node.NextNode;
             }
-
+            if (node.NextNode == null)
+            {
+                LastNode = node.PrevNode;
+            }
+            else
+            {
+                node.NextNode.PrevNode = node.PrevNode;
+            }
+            Count--;
+            return true;
         }
         //O(1)
 
