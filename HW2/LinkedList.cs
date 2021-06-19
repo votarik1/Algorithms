@@ -7,9 +7,9 @@ namespace HW2
     public class LinkedList:ILinkedList
     {
 
-        public Node StartNode { get; set; }
-        public Node LastNode { get; set; }
-        public int Count { get; set; } //O(1)
+        public Node StartNode { get; private set; }
+        public Node LastNode { get; private set; }
+        public int Count { get; private set; } //O(1)
         public Node AddNode(int value)
         {      
             Node NewNode = new Node();
@@ -60,7 +60,7 @@ namespace HW2
             Node ActiveNode = StartNode;
             if (index < 0)
             {
-                return false;
+                throw new ArgumentOutOfRangeException(nameof(index), "Индекс должен быть от 0 до Count-1", index);
             }
 
            
