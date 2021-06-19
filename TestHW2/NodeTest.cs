@@ -9,11 +9,11 @@ namespace TestHW2
         [TestMethod]
         public void NodeTest1()
         {
-            Node begin = new Node() {value = 0 };
-            LinkedList myList = new LinkedList() { StartNode = begin, LastNode = begin, Count = 1};
+            LinkedList myList = new LinkedList();
+            myList.AddNode(0);
             for (int i = 0; i < 10; i++)
             {
-                myList.AddNodeAfter(myList.LastNode, i + 1);
+                myList.AddNodeAfter(myList.LastNode, i+1);
             }
             int expected = 10;
             int actual = myList.LastNode.value;
@@ -26,11 +26,10 @@ namespace TestHW2
         [TestMethod]
         public void NodeTest2()
         {
-            Node begin = new Node() { value = 0 };
-            LinkedList myList = new LinkedList() { StartNode = begin, LastNode = begin, Count = 1 };
-            for (int i = 0; i < 10; i++)
+            LinkedList myList = new LinkedList();
+            for (int i = 0; i < 11; i++)
             {
-                myList.AddNode(i + 1);
+                myList.AddNode(i);
             }
             int expected = 10;
             int actual = myList.LastNode.value;
@@ -40,11 +39,10 @@ namespace TestHW2
         [TestMethod]
         public void NodeTest3()
         {
-            Node begin = new Node() { value = 0 };
-            LinkedList myList = new LinkedList() { StartNode = begin, LastNode = begin, Count = 1 };
-            for (int i = 0; i < 10; i++)
+            LinkedList myList = new LinkedList();
+            for (int i = 0; i < 11; i++)
             {
-                myList.AddNode(i + 1);
+                myList.AddNode(i);
             }
             int expected = 5;
             int actual = myList.FindNode(5).value;
@@ -53,11 +51,10 @@ namespace TestHW2
         [TestMethod]
         public void NodeTest4()
         {
-            Node begin = new Node() { value = 0 };
-            LinkedList myList = new LinkedList() { StartNode = begin, LastNode = begin, Count = 1 };
-            for (int i = 0; i < 10; i++)
+            LinkedList myList = new LinkedList();
+            for (int i = 0; i < 11; i++)
             {
-                myList.AddNode(i + 1);
+                myList.AddNode(i);
             }
             myList.RemoveNode(myList.LastNode);
             int expected = 10;

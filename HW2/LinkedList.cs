@@ -14,9 +14,17 @@ namespace HW2
         {      
             Node NewNode = new Node();
             NewNode.value = value;
-            LastNode.NextNode = NewNode;
-            NewNode.PrevNode = LastNode;
-            LastNode = NewNode;
+            if (StartNode == null)
+            {
+                StartNode = NewNode;
+                LastNode = NewNode;
+            }
+            else
+            {
+                LastNode.NextNode = NewNode;
+                NewNode.PrevNode = LastNode;
+                LastNode = NewNode;
+            }            
             Count++;
             return LastNode;
         } //O(1)
@@ -60,7 +68,7 @@ namespace HW2
             Node ActiveNode = StartNode;
             if (index < 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(index), "Индекс должен быть от 0 до Count-1", index);
+                throw new ArgumentOutOfRangeException(nameof(index), $"Индекс должен быть от 0 до {Count-1}");
             }
 
            
