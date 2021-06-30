@@ -1,0 +1,17 @@
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19041.1052 (2004/May2020Update/20H1)
+Intel Core i7-6700 CPU 3.40GHz (Skylake), 1 CPU, 8 logical and 4 physical cores
+.NET SDK=5.0.301
+  [Host]     : .NET Core 3.1.16 (CoreCLR 4.700.21.26205, CoreFX 4.700.21.26205), X64 RyuJIT  [AttachedDebugger]
+  DefaultJob : .NET Core 3.1.16 (CoreCLR 4.700.21.26205, CoreFX 4.700.21.26205), X64 RyuJIT
+
+
+|            Method |         Mean |      Error |     StdDev |
+|------------------ |-------------:|-----------:|-----------:|
+|   TestArraySearch | 33,227.19 ns | 461.123 ns | 431.335 ns |
+| TestHashSetSearch |     19.14 ns |   0.223 ns |   0.208 ns |
+
+
+Вывод:
+Метод HashSetSearch для 10000 элементов работает в 1750 раз быстрее TestArraySearch.
+Т. к. при поиске Элемента в HashSet происходит хэширование искомого элемента переход по адресу блока и проход мини-списка состоящего из элементов с одинаковым хэшем.
+в ArraySearch реализован обычный линейный поиск.
