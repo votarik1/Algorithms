@@ -10,7 +10,6 @@ namespace HW4
     {
         static void Main(string[] args)
         {
-
             //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
             var myTree = new Tree();
             myTree.Add(6);
@@ -20,27 +19,7 @@ namespace HW4
             myTree.Remove(6);
             myTree.Add(9);
             myTree.Print();
-            int expected = 9;
-            int current = myTree.Search(9).Data;
-            //Assert.AreEqual(expected, current);
-            Console.ReadKey();
-            
-        }
-
-        
-
+            Console.ReadKey();            
+        }       
     }
-
-
-
-
-   
-
-
-  
-
-
-
-
-
 }
