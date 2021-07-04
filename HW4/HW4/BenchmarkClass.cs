@@ -39,9 +39,9 @@ namespace HW4
     {
         if (myHashSet.Contains(searchString))
         {
-            return searchString.GetHashCode().ToString();
+            return true;
         }
-        return null;
+        return false;
     }
 
     [Benchmark]
