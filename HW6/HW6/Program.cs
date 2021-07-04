@@ -43,7 +43,7 @@ namespace HW6
 
             myGraph.BFSearch("восемь");
 
-            myGraph.DFSearch("один");
+            myGraph.DFSearch("абвгд");
 
 
 
