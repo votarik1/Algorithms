@@ -29,10 +29,10 @@ namespace HW4
         {
             if (searchString == myArray[i])
             {
-                return i;
+                return true;
             }
         }
-        return -1;
+        return false;
     }
 
     string HashSetSearch()
