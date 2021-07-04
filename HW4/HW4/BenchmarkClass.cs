@@ -35,7 +35,7 @@ namespace HW4
         return false;
     }
 
-    string HashSetSearch()
+    private bool HashSetSearch()
     {
         if (myHashSet.Contains(searchString))
         {
