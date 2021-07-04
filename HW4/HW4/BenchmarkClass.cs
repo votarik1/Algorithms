@@ -19,10 +19,7 @@ namespace HW4
         {
             myArray[i] = random.Next().ToString();
         }
-        foreach (var item in myArray)
-        {
-            myHashSet.Add(item);
-        }
+        myHashSet = new HashSet<string>(myArray);
 
     }
 
