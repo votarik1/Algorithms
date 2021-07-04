@@ -23,7 +23,7 @@ namespace HW4
 
     }
 
-    int ArraySearch()
+    private bool ArraySearch()
     {
         for (int i = 0; i < myArray.Length; i++)
         {
