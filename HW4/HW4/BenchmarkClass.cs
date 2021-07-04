@@ -50,9 +50,9 @@ namespace HW4
         return ArraySearch();
     }
     [Benchmark]
-    public void TestHashSetSearch()
+    public bool TestHashSetSearch()
     {
-        HashSetSearch();
+        return HashSetSearch();
     }
 
 }
