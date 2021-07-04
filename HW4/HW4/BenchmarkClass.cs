@@ -8,10 +8,10 @@ namespace HW4
 {
     public class BenchmarkClass
     {
-        HashSet<string> myHashSet = new HashSet<string>();
-        string[] myArray = new string[10000];
-        Random random = new Random();
-        string searchString;
+        private readonly HashSet<string> myHashSet = new HashSet<string>();
+        private readonly string[] myArray = new string[10000];
+        private readonly Random random = new Random();
+        private string searchString;
         public BenchmarkClass()
     {
         searchString = random.Next().ToString();
