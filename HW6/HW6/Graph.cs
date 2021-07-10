@@ -20,7 +20,7 @@ namespace HW6
 
         public int BFSearch(string searchString)
         {
-            var wasViewed = new bool[AdjacencyMatrix.GetLength(0)]; // матрица просмотренных значений
+            var wasViewed = new bool[Data.Length]; // матрица просмотренных значений
             var MyQueue = new Queue<int>();
             MyQueue.Enqueue(0);
             wasViewed[0] = true;
